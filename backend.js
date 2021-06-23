@@ -18,16 +18,23 @@ http.createServer((req, res) => {
         mo = mo.replace(/&/g, '","')
         mo = mo.replace(/\+/g, ' ')
         mo = '{"' + mo + '"}'
-        obj = JSON.parse(mo)
+        try {
+            obj = JSON.parse(mo)
+        } catch (error) {
+            res.end("enter valid url")
+        }
 
         fs.access(`./data/${obj.mono}`, (err) => {
             if (err) {
                 var mainfile = fs.readFileSync('./main.csv', 'utf-8')
                 let data = `${obj.name},${obj.fname},${obj.mname},${obj.sr},${obj.dob},${obj.sAdhar},${obj.ifsc},${obj.hname},${obj.accno},${obj.phone},${obj.hAdhar},,,,\n`
-                fs.mkdirSync(`./data/${obj.mono}`)
+                    fs.mkdirSync(`./data/${obj.mono}`)    
                 for (let i = 1; i <= 5; i++) {
                     if (obj.class == i) {
-                        fs.appendFileSync(`./data/${obj.mono}/class${obj.class}.csv`, mainfile + data)
+                            fs.appendFile(`./data/${obj.mono}/class${obj.class}.csv`, mainfile + data,(err)=>{
+                                if (err)
+                                res.end(err)
+                            })  
                     } else {
                         fs.writeFile(`./data/${obj.mono}/class${i}.csv`, mainfile, (err) => {
                             if (err)
@@ -51,7 +58,7 @@ http.createServer((req, res) => {
             })
             res.end(studentslist)
         } catch (error) {
-            res.end('some error occured')
+            res.end('<h1>i dont have backend</h1>')
         }
 
     }
