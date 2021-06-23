@@ -1,0 +1,20 @@
+{
+  "name": "excel",
+  "version": "1.0.0",
+  "description": "excel databse",
+  "main": "backend.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suryapratap424/excel-students.git"
+  },
+  "author": "surya pratap singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suryapratap424/excel-students/issues"
+  },
+  "homepage": "https://github.com/suryapratap424/excel-students#readme"
+}
