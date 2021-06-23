@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <style>
+         body{
+            margin: auto;
+            background-color: aqua;
+        }
+        span>b{
+            color: rgb(0, 90, 90);
+        }
+        span,
+       form{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: auto;
+            padding: 20px;
+            background-color: blanchedalmond;
+            border: 2px solid rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+        fieldset{
+            background-color: blanchedalmond;
+        }
+        button{
+            background-color: rgb(112, 255, 174);
+        }
+        a{
+            margin: 2px;
+            padding: 2px;
+            background-color: rgb(255, 255, 255);
+        }
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <span>you are logged in with <b> {mono}</b><a href="/">logout?</a></span>
+    
+    <form action="admi" method="GET">
+        <h2><u><i> Enter student data:</i></u></h2>
+        <input type="text" name="name" placeholder="student name">
+        <input type="text" name="fname" placeholder="fathers name">
+        <input type="text" name="mname" placeholder="mothers name">
+        <input type="text" name="sr" placeholder="srno">
+        <input type="text" name="dob" placeholder="date of birth">
+        <input type="text" name="sAdhar" placeholder="student Aadhar">
+        <input type="text" name="ifsc" placeholder="bank ifsc code">
+        <input type="text" name="hname" placeholder="account holder name">
+        <input type="text" name="accno" placeholder="account holder account number">
+        <input type="text" name="phone" placeholder="account holder mobile number">
+        <input type="text" name="hAdhar" placeholder="account holder Aadhar">
+        <div>
+            <input type="radio" id="class1" name="class" value="1" required>
+            <label for="class1">Class 1</label>
+            <input type="radio" id="class2" name="class" value="2">
+            <label for="class2">Class 2</label>
+            <input type="radio" id="class3" name="class" value="3">
+            <label for="class3">Class 3</label>
+            <input type="radio" id="class4" name="class" value="4">
+            <label for="class4">Class 4</label>
+            <input type="radio" id="class5" name="class" value="5">
+            <label for="class5">Class 5</label>
+        </div>
+        <input type="hidden" name="mono" value="{mono}">
+        <button type="submit">UPLOAD</button>
+    </form>
+    <fieldset>
+        <legend>Download your Uploaded Data </legend>
+        choose class: <br>
+        <a href="../data/{mono}/class1.csv">class 1</a>
+        <a href="../data/{mono}/class2.csv">class 2</a>
+        <a href="../data/{mono}/class3.csv">class 3</a>
+        <a href="../data/{mono}/class4.csv">class 4</a>
+        <a href="../data/{mono}/class5.csv">class 5</a>
+    </fieldset>
+</body>
+
+</html>
